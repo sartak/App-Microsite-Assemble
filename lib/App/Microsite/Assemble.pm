@@ -24,10 +24,13 @@ sub assemble {
         @_,
     };
 
+    for my $arg (qw/templates_dir fragments_dir build_dir/) {
+        $args->{$arg} = dir($args->{$arg});
+    }
+
     $args->{_seen_fragments} = {};
 
-    my $build = dir($args->{build_dir});
-    $build->mkpath;
+    $args->{build_dir}->mkpath;
 
     my %seen;
 
@@ -50,7 +53,7 @@ sub assemble {
                 my $target = $config->{target}
                     or die "No configured 'target' file for '$dir'. Add: \"target\":\"path.html\" to $child\n";
 
-                my $outfile = $build->file($target);
+                my $outfile = $args->{build_dir}->file($target);
 
                 if ($seen{$outfile}) {
                     die "Outfile '$outfile' for $dir was already built by $seen{$outfile}\n";
