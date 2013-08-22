@@ -201,6 +201,10 @@ sub _merge_config {
 
 __END__
 
+=head1 NAME
+
+App::Microsite::Assemble - Assemble a microsite with Handlebars
+
 =head1 DESCRIPTION
 
 This module assembles F<templates/> into fully-baked pages.
