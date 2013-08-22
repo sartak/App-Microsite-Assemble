@@ -8,11 +8,13 @@ my $with_cms;
 GetOptions ( with_cms => \$with_cms );
 
 my %args = (
-    activeMenu => sub {
-        my ($context, $menu) = @_;
-        if( $context->{'active-menu'} && $context->{'active-menu'} eq $menu ) {
-            return 'class=active';
-        }
+    helpers => {
+        activeMenu => sub {
+            my ($context, $menu) = @_;
+            if( $context->{'active-menu'} && $context->{'active-menu'} eq $menu ) {
+                return 'class=active';
+            }
+        },
     },
 );
 
