@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use App::Microsite::Assemble;
+use Path::Class;
 use Getopt::Long;
 
 my $with_cms;
@@ -24,6 +25,14 @@ if ($with_cms) {
         my $relative_file = $file;
         $relative_file =~ s/^fragments\///;
         return "<iicmsfragment path='$relative_file'>$content</iicmsfragment>";
+    };
+
+    $args{missing_fragment} = sub {
+        my ($name, $paths) = @_;
+        my $relative_fragment = $paths->[0];
+        $relative_fragment =~ s/^fragments\///;
+        dir($relative_fragment)->mkpath;
+        return "<iicmsfragment path='$relative_fragment/$name'>$name</iicmsfragment>";
     };
 }
 
