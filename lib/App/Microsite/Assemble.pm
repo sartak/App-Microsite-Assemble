@@ -160,7 +160,8 @@ sub _handlebars {
                     }
                 }
 
-                return $args->{missing_fragment}->($name, \@paths);
+                $content = $args->{missing_fragment}->($name, \@paths);
+                return mark_raw($content);
             },
         },
         suffix => '.partial',
