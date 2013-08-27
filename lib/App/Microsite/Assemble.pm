@@ -1,4 +1,5 @@
 package App::Microsite::Assemble;
+# ABSTRACT: Assemble a microsite with Handlebars
 use strict;
 use warnings;
 use File::Next;
@@ -204,10 +205,6 @@ sub _merge_config {
 1;
 
 __END__
-
-=head1 NAME
-
-App::Microsite::Assemble - Assemble a microsite with Handlebars
 
 =head1 DESCRIPTION
 
