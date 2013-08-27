@@ -160,7 +160,7 @@ sub _handlebars {
                     }
                 }
 
-                $content = $args->{missing_fragment}->($name, \@paths);
+                my $content = $args->{missing_fragment}->($name, \@paths);
                 return mark_raw($content);
             },
         },
