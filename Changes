@@ -1,0 +1,6 @@
+0.02 2012-08-27
+    Automatically create fragments and fragment dirs in CMS mode in example (sartak)
+    Mark output from missing_fragment as raw (sartak)
+
+0.01 2012-08-22
+    Initial release
